@@ -1,6 +1,6 @@
 package com.dev.agripocket.controller;
 import com.dev.agripocket.model.User;
-import com.dev.agripocket.service.UserServiceImpl;
+import com.dev.agripocket.service.impl.UserServiceImpl;
 import com.dev.agripocket.utils.MessageUtils;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
@@ -29,7 +29,6 @@ public class UserController {
     public void redirect(HttpServletResponse response) throws IOException {
         response.sendRedirect("/swagger-ui.html");
     }
-
     @GetMapping(path = "/userById/{userId}")
     public ResponseEntity<String> getUser(@PathVariable Integer userId) {
         try{
@@ -38,12 +37,9 @@ public class UserController {
             return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
         }
     }
-
     @PostMapping(path = "/registerUser",
-            consumes = "application/json"
-    )
+            consumes = "application/json")
     public ResponseEntity<String> registerUser(@RequestBody User userObj){
-        System.out.println("user object" + userObj);
         try{
             String user = userServiceImpl.createUser(userObj);
             return new ResponseEntity<String>("Inserting to Mongo DB with user id of : " + user, HttpStatus.OK);

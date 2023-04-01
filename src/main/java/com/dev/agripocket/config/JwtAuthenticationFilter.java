@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.lang.NonNull;
-import com.dev.agripocket.service.JWTService;
+import com.dev.agripocket.service.impl.JWTService;
 import java.io.IOException;
 
 

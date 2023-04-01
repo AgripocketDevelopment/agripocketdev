@@ -1,19 +1,20 @@
-package com.dev.agripocket.service;
+package com.dev.agripocket.service.impl;
 import com.dev.agripocket.controller.UserController;
-import com.dev.agripocket.model.Address;
 import com.dev.agripocket.model.Role;
 import com.dev.agripocket.model.User;
 import com.dev.agripocket.repositories.UserRepository;
+import com.dev.agripocket.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
@@ -45,7 +46,7 @@ public class UserServiceImpl implements UserService{
         user.setCreatedAt(LocalDate.now());
         user.setMobileNumber(userEntity.getMobileNumber());
         user.setAddress(userEntity.getAddress());
-        user.setRole(Role.USER);
+        user.setRole(Collections.singleton(Role.USER));
         return userServiceOperations.createUser(user);
     }
 

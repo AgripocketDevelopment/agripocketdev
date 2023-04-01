@@ -15,7 +15,7 @@ import java.util.Collection;
 @Document
 @AllArgsConstructor
 @NoArgsConstructor
-public class User implements UserDetails {
+public class User {
     @Id
     public String id;
     public String username;
@@ -27,27 +27,27 @@ public class User implements UserDetails {
     public String mobileNumber;
     public LocalDate createdAt;
     public LocalDate modifiedAt;
-    public Role role;
+    public Set<Role> role;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
-    }
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+//    @Override
+//    public Collection<? extends GrantedAuthority> getAuthorities() {
+//        return List.of(new SimpleGrantedAuthority(role.name()));
+//    }
+//    @Override
+//    public boolean isAccountNonExpired() {
+//        return true;
+//    }
+//    @Override
+//    public boolean isAccountNonLocked() {
+//        return true;
+//    }
+//    @Override
+//    public boolean isCredentialsNonExpired() {
+//        return true;
+//    }
+//    @Override
+//    public boolean isEnabled() {
+//        return true;
+//    }
 
 }

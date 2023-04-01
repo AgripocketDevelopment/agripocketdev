@@ -1,4 +1,4 @@
-package com.dev.agripocket.service;
+package com.dev.agripocket.service.impl;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;

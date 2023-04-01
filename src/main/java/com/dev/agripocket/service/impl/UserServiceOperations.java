@@ -1,4 +1,4 @@
-package com.dev.agripocket.service;
+package com.dev.agripocket.service.impl;
 import com.dev.agripocket.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
