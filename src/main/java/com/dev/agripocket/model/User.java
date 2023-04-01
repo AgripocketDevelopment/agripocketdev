@@ -17,17 +17,17 @@ import java.util.Collection;
 @NoArgsConstructor
 public class User implements UserDetails {
     @Id
-    private String id;
-    private String username;
-    private String password;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private Address address;
-    private String mobileNumber;
-    private LocalDate createdAt;
-    private LocalDate modifiedAt;
-    private Role role;
+    public String id;
+    public String username;
+    public String password;
+    public String firstName;
+    public String lastName;
+    public String email;
+    public Address address;
+    public String mobileNumber;
+    public LocalDate createdAt;
+    public LocalDate modifiedAt;
+    public Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

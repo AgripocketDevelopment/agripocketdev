@@ -1,5 +1,4 @@
 package com.dev.agripocket.config;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.builders.ApiInfoBuilder;

@@ -9,7 +9,6 @@ import java.util.Optional;
 public interface UserRepository
         extends MongoRepository<User, String> {
      List<User> findByFirstNameStartsWith(String name);
-
      Optional<User> findByEmail(String email);
 }
 

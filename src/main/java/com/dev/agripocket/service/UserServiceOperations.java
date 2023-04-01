@@ -27,4 +27,10 @@ public class UserServiceOperations {
                 Sort.Direction.ASC, "lastname"));
     }
 
+    public String getUserId(){
+         String userStringId =  String
+                 .valueOf(userRepository.findAll().size() + 1);
+         return userStringId;
+    }
+
 }

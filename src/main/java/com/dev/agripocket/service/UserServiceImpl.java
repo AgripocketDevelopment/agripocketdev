@@ -1,7 +1,11 @@
 package com.dev.agripocket.service;
+import com.dev.agripocket.controller.UserController;
+import com.dev.agripocket.model.Address;
 import com.dev.agripocket.model.Role;
 import com.dev.agripocket.model.User;
 import com.dev.agripocket.repositories.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
@@ -20,11 +24,19 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private UserServiceOperations userServiceOperations;
 
+    Logger logger = LoggerFactory.getLogger(UserController.class);
+
     @Override
     public String createUser(User userEntity) {
-        /*
-        * Create object of users
-        * */
+        /**
+         * Update object of {address.userId} userId document
+         * according to userId collections...
+         * **/
+        userEntity.getAddress()
+                .setUserId(Integer.parseInt(userServiceOperations.getUserId()));
+        /**
+         * Map User Object to insert User DB collection
+         * **/
         User user = new User();
         user.setUsername(userEntity.getUsername());
         user.setPassword(userEntity.getPassword());
@@ -46,6 +58,5 @@ public class UserServiceImpl implements UserService{
     public List<User> getUserStartWith(String name) {
         return userRepository.findByFirstNameStartsWith(name);
     }
-
 
 }
